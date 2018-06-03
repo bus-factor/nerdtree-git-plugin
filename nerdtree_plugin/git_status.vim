@@ -150,8 +150,6 @@ function! g:NERDTreeGitStatusRefresh()
     endif
     let b:NOT_A_GIT_REPOSITORY = 0
 
-
-
     for l:statusLine in l:statusesSplit
         " cache git status of files
         let l:pathStr = substitute(l:statusLine, '..', '', '')
@@ -410,16 +408,14 @@ function! s:AddHighlighting()
       endif
     endfor
 
-    hi def link NERDTreeGitStatusUnmerged Function
-    hi def link NERDTreeGitStatusModified Special
-    hi def link NERDTreeGitStatusStaged Function
-    hi def link NERDTreeGitStatusRenamed Title
-    hi def link NERDTreeGitStatusUnmerged Label
-    hi def link NERDTreeGitStatusUntracked Comment
-    hi def link NERDTreeGitStatusDirDirty Tag
-    hi def link NERDTreeGitStatusDirClean DiffAdd
-    " TODO: use diff color
-    hi def link NERDTreeGitStatusIgnored DiffAdd
+    hi NERDTreeGitStatusIgnored ctermfg=Gray guifg=Gray
+    hi NERDTreeGitStatusModified ctermfg=LightYellow guifg=LightYellow
+    hi NERDTreeGitStatusDirDirty ctermfg=LightYellow guifg=LightYellow
+    hi NERDTreeGitStatusUntracked ctermfg=Red guifg=Red
+    hi NERDTreeGitStatusStaged ctermfg=LightGreen guifg=LightGreen
+    hi NERDTreeGitStatusRenamed ctermfg=LightGreen guifg=LightGreen
+    hi NERDTreeGitStatusDirClean ctermfg=White guifg=White
+    hi NERDTreeGitStatusUnmerged ctermfg=LightMagenta guifg=LightMagenta
 endfunction
 
 function! s:SetupListeners()
